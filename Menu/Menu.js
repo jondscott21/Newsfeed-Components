@@ -19,6 +19,7 @@ class Menu {
   }
   toggleMenu() {
     // Toggle the "menu--open" class on your menu refence. 
+    console.log('toggleMenu', this);
     this.menu.classList.toggle('menu--open');
   }
 }
@@ -26,6 +27,6 @@ class Menu {
 
 // Start Here: Create a reference to the ".menu" class
 const menu = new Menu(document.querySelector('.menu'));
-console.log(menu);
+// console.log(menu);
 // create a reference to the ".menu-button" class
 // Using your menuButton reference, add a click handler that calls toggleMenu
