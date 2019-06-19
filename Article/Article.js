@@ -20,8 +20,7 @@ class Article {
 
   expandArticle() {
     // Using our reference to the domElement, toggle a class to expand or hide the article.
-    this.domElement.classList.toggle('close');
-    this.domElement.classList.toggle('article');
+    this.domElement.classList.toggle('article-open');
     if(this.expandButton.textContent === 'expand') {
       this.expandButton.textContent = `close`;
     } else {
@@ -48,4 +47,4 @@ NodeList and create a new instance of Article by passing in each article as a pa
 
 let articles = document.querySelectorAll('.article');
 articles.forEach(article => new Article(article));
-console.log('articles', articles);
+// console.log('articles', articles);
