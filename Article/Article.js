@@ -11,20 +11,29 @@ class Article {
     
     // Set a click handler on the expandButton reference, calling the expandArticle method.
     this.expandButton.addEventListener('click', () => this.expandArticle());
+    // this.domElement.addEventListener('click', () => this.expandArticle());
+
+    this.domElement.addEventListener('mouseover', () => this.highlightArticle());
+    this.domElement.addEventListener('mouseout', () => this.offArticle());
     
   }
 
   expandArticle() {
     // Using our reference to the domElement, toggle a class to expand or hide the article.
-    // console.log('expandArticle', this);
     this.domElement.classList.toggle('close');
     this.domElement.classList.toggle('article');
     if(this.expandButton.textContent === 'expand') {
       this.expandButton.textContent = `close`;
     } else {
-      this.expandButton.textContent = `expand`;
+      this.domElement.style.display = 'none';
     }
     
+  }
+  highlightArticle() {
+    this.domElement.style.border = 'solid lightblue 2px';
+  }
+  offArticle() {
+    this.domElement.style.border = 'solid lightgrey 1px';
   }
 }
 
