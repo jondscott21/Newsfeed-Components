@@ -3,9 +3,9 @@
 class Article {
   constructor(domElement) {
     // assign this.domElement to the passed in domElement
-    this.domElement;
+    this.domElement = domElement;
     // create a reference to the ".expandButton" class. 
-    this.expandButton;
+    this.expandButton = domElement.querySelection('.expandButton');
     // Using your expandButton reference, update the text on your expandButton to say "expand"
     
     // Set a click handler on the expandButton reference, calling the expandArticle method.
@@ -22,7 +22,8 @@ class Article {
 
 - Select all classes named ".article" and assign that value to the articles variable.  
 
-- With your selection in place, now chain .forEach() on to the articles variable to iterate over the articles NodeList and create a new instance of Article by passing in each article as a parameter to the Article class.
+- With your selection in place, now chain .forEach() on to the articles variable to iterate over the articles 
+NodeList and create a new instance of Article by passing in each article as a parameter to the Article class.
 
 */
 
