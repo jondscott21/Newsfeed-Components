@@ -60,13 +60,13 @@ headlineInput.placeholder = `Headline Here!`;
 console.log(headlineInput);
 
 // Create input for paragraph entry
-const paragraphInput = document.createElement('input')
-paragraphInput.setAttribute('type', 'textArea')
+const paragraphInput = document.createElement('textarea')
 paragraphInput.placeholder = `Article Here!`;
 
 // create submit button
 const createArticle = document.createElement('input')
 createArticle.setAttribute('type', 'submit')
+createArticle.value = 'Add Article'
 
 // append form to body
 document.body.appendChild(articleForm)
@@ -80,7 +80,9 @@ function appendArticle() {
   let clonedArticle = articleMaster.firstElementChild.cloneNode(true);
   new Article(clonedArticle);
   clonedArticle.querySelector('h2').textContent = headlineInput.value
-  clonedArticle.querySelector('p').textContent = new Date();
+  clonedArticle.querySelector('.date').textContent = new Date();
+  clonedArticle.querySelector('p:nth-of-type(2)').textContent = paragraphInput.value;
+  clonedArticle.querySelector('p:nth-of-type(3)').textContent = paragraphInput.value;
   clonedArticle.querySelector('p:last-of-type').textContent = paragraphInput.value;
   if (headlineInput.value.length > 0 && paragraphInput.value.length > 0) {
     articleMaster.appendChild(clonedArticle);
