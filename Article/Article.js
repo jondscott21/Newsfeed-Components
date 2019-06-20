@@ -80,8 +80,16 @@ function appendArticle() {
   let clonedArticle = articleMaster.firstElementChild.cloneNode(true);
   new Article(clonedArticle);
   clonedArticle.querySelector('h2').textContent = headlineInput.value
+  clonedArticle.querySelector('p').textContent = new Date();
   clonedArticle.querySelector('p:last-of-type').textContent = paragraphInput.value;
-  articleMaster.appendChild(clonedArticle);
+  if (headlineInput.value.length > 0 && paragraphInput.value.length > 0) {
+    articleMaster.appendChild(clonedArticle);
+    headlineInput.value = null;
+    paragraphInput.value = null;
+  } else {
+    return alert('You must enter a headline and an article.');
+  }
+  
 }
 
 createArticle.addEventListener('click', (event) => {
