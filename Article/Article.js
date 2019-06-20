@@ -51,7 +51,7 @@ let articles = document.querySelectorAll('.article');
 articles.forEach(article => new Article(article));
 // console.log('articles', articles);\
 
-// create input for 
+// create input form
 const articleForm = document.createElement('form')
 
 const headlineInput = document.createElement('input')
@@ -78,8 +78,9 @@ articleForm.appendChild(createArticle)
 function appendArticle() {
   let articleMaster = document.querySelector('.articles');
   let clonedArticle = articleMaster.firstElementChild.cloneNode(true);
+  new Article(clonedArticle);
   clonedArticle.querySelector('h2').textContent = headlineInput.value
-  clonedArticle.querySelector('p').textContent = paragraphInput.value;
+  clonedArticle.querySelector('p:last-of-type').textContent = paragraphInput.value;
   articleMaster.appendChild(clonedArticle);
 }
 
