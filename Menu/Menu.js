@@ -26,3 +26,49 @@ let menuItems = [
     Step 6: add the menu component to the DOM.
     
   */
+ const header = document.querySelector('.header');
+ header.prepend(createMenu(menuItems));
+
+ function createMenu(menuItems) {
+     //Creating elements
+     console.log(menuItems)
+    const menu = document.createElement('div');
+    const menuList = document.createElement('ul');
+
+    //Appending elements and creating menu items
+    menu.appendChild(menuList);
+    menuItems.map(el => {
+        let item = document.createElement('p');
+        item.textContent = el;
+        menuList.appendChild(item);
+    });
+
+    //Adding classes to elements
+    menu.classList.add('menu')
+
+    //Adding eventlistener to menu button
+    
+
+    const menuButton = document.querySelector('.menu-button');
+    menuButton.addEventListener('click', event =>{
+        menu.classList.toggle('menu--open');
+        // let currentAnimation = new TimelineLite();
+        // let tl = new TimelineLite({paused:true});
+        // tl.to(menu, 0.5, {width: "350px"})
+        // menu.animation = tl;
+        
+        // if(menu.animation == currentAnimation){
+        //     if(!menu.animation.reversed()){
+        //         menu.animation.reverse();
+        //     } else {
+        //         menu.animation.play()
+        //     }
+        // } else {
+        //     currentAnimation.reverse();
+        //     menu.animation.play();
+        //     currentAnimation = menu.animation;
+        // }
+    })
+
+    return menu;
+ }
