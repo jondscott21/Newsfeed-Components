@@ -85,7 +85,19 @@ const data = [
       thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
             Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
             Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-    }
+    },
+    {
+        title: `Found them? In Mercia?! The coconut's tropical!`,
+        date: 'Jul 10th, 2019',
+        firstParagraph: `The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land.`,
+    
+        secondParagraph: `Camelot! Listen. Strange women lying in ponds distributing swords is no basis for a system of government. 
+            Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony.`,
+    
+        thirdParagraph: `Oh! Come and see the violence inherent in the system! Help, help, I'm being repressed! What a strange person. 
+            Oh! Come and see the violence inherent in the system! Help, help, I'm being repressed! On second thoughts, let's not go there. 
+            It is a silly place.`
+      }
   ];
   
   /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
@@ -106,7 +118,7 @@ const data = [
  const articles = document.querySelector('.articles')
  
 
- data.forEach(el => {
+ data.map(el => {
     articles.appendChild(createArticle(el.title, el.date, el.firstParagraph, el.secondParagraph, el.thirdParagraph));
  })
  function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
@@ -139,6 +151,11 @@ const data = [
     articleparagraph2.textContent = secondParagraph;
     articleparagraph3.textContent = thirdParagraph;
     expandButton.textContent = `Expand`;
+
+    //Adding eventlistener to button
+    expandButton.addEventListener('click', event => {
+        article.classList.toggle('article-open');
+    })
 
     return article;
  }
