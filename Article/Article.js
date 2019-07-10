@@ -103,6 +103,42 @@ const data = [
     Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
     Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
   */
- function createArticle() {
+ const articles = document.querySelector('.articles')
+ 
+
+ data.forEach(el => {
+    articles.appendChild(createArticle(el.title, el.date, el.firstParagraph, el.secondParagraph, el.thirdParagraph));
+ })
+ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+     // Creating elements
+     const article = document.createElement('div');
      const articleTitle = document.createElement('h2');
+     const articleDate = document.createElement('p');
+     const articleparagraph1 = document.createElement('p');
+     const articleparagraph2 = document.createElement('p');
+     const articleparagraph3 = document.createElement('p');
+     const expandButton = document.createElement('span');
+    
+     // Structuring Elements
+    article.appendChild(articleTitle);
+    article.appendChild(articleDate);
+    article.appendChild(articleparagraph1);
+    article.appendChild(articleparagraph2);
+    article.appendChild(articleparagraph3);
+    article.appendChild(expandButton);
+
+    // Adding classes to elements
+    article.classList.add('article');
+    articleDate.classList.add('date');
+    expandButton.classList.add('expandButton');
+
+    //Adding textContent
+    articleTitle.textContent = title;
+    articleDate.textContent = date;
+    articleparagraph1.textContent = firstParagraph;
+    articleparagraph2.textContent = secondParagraph;
+    articleparagraph3.textContent = thirdParagraph;
+    expandButton.textContent = `Expand`;
+
+    return article;
  }
